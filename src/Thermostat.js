@@ -4,6 +4,7 @@
 //thermostat object by running new Thermostat() with a property of 20.
 function Thermostat() {
   this.MINIMUMTEMP = 10;
+  this.MAXPOWERSAVINGTEMP = 25
   this.temperature = 20;
 
 };
@@ -13,7 +14,11 @@ function Thermostat() {
 
   Thermostat.prototype.isMinimumTemperarture = function () {
     return this.temperature === this.MINIMUMTEMP;
-  }
+  };
+
+  Thermostat.prototype.isPowerSavingModeOn = function() {
+    return this.temperature > this.MAXPOWERSAVINGTEMP;
+  };
   // Is is a function intended to return a boolean value.
   // === means a value is only strictly equal to itself.
 //The prototype keyword acts as a storage area for Thermostat and
@@ -31,4 +36,10 @@ function Thermostat() {
         return;
       }
         this.temperature -= 1;
+    }
+    Thermostat.prototype.powersavingmode = function () {
+      if (this.isPowerSavingModeOn()) {
+        return;
+      }
+        this.MAXPOWERSAVINGTEMP; 
     }
