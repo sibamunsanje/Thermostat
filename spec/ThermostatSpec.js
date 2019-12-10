@@ -8,15 +8,21 @@ describe("Thermostat", function() {
   });
 
     it("starts at 20 degrees", function() {
-      expect(thermostat.getCurrenttemperature()).toEqual(20);
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
     });
     it("increases in temperature with up()", function() {
       thermostat.up();
-      expect(Thermostat.getCurrentTemperature()).toEqual(21);
+      expect(thermostat.getCurrentTemperature()).toEqual(21);
     });
-    it("decreases in temperature with down button", function () {
+    it("decreases in temperature with down button()", function () {
       thermostat.down();
-      expect(thermostat.getCurrenttemperature()).toEqual(19);
+      expect(thermostat.getCurrentTemperature()).toEqual(19);
 
     });
+    it("has a minimum temperature of 10 degrees"), function() {
+      for (var i = 0; i < 11; i++) {
+        thermostat.down();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(10);
+    }
   });
